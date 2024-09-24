@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcai5ow8aexeu"]
+
+[ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_gmgpw"]
+[ext_resource type="Texture2D" uid="uid://cwib6fqnfnvjy" path="res://Player/Sprites/walk.png" id="1_yibou"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kf777"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_gmgpw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kf777")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -17)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("1_yibou")
+hframes = 8
+vframes = 6
