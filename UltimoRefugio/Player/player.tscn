@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Player/Scripts/state_walk.gd" id="5_cc1fa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kf777"]
+radius = 6.08276
 
 [sub_resource type="Animation" id="Animation_sq4lf"]
 length = 0.001
@@ -138,13 +139,17 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(28, 58)
+collision_mask = 16
+motion_mode = 1
+wall_min_slide_angle = 0.174533
 script = ExtResource("1_gmgpw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_kf777")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -17)
+position = Vector2(0, -11)
 texture = ExtResource("2_mj7ob")
 hframes = 8
 vframes = 12
@@ -162,3 +167,5 @@ script = ExtResource("4_5jdc1")
 
 [node name="walk" type="Node" parent="StateMachine"]
 script = ExtResource("5_cc1fa")
+
+[node name="Camera2D" type="Camera2D" parent="."]
