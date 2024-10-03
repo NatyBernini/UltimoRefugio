@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dn1jfxb1klms0"]
+[gd_scene load_steps=25 format=3 uid="uid://dn1jfxb1klms0"]
 
 [ext_resource type="Texture2D" uid="uid://dsk0mnpayqhur" path="res://Tile Maps/Sprites/Grass-01.png" id="1_kjl1f"]
 [ext_resource type="Texture2D" uid="uid://dfn52ebbu0662" path="res://Tile Maps/Sprites/Tilesets and props Demo.png" id="2_0eipk"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://da7q8bue3fayq" path="res://Tile Maps/Sprites/TX Tileset Stone Ground.png" id="5_qogkv"]
 [ext_resource type="Texture2D" uid="uid://b5r07mwcvwi1v" path="res://Tile Maps/Sprites/houses.png" id="6_yr1bw"]
 [ext_resource type="Texture2D" uid="uid://qn3xs5mcu3ri" path="res://Tile Maps/Sprites/Log_Cabin.png" id="7_qag2e"]
+[ext_resource type="Script" path="res://Tile Maps/LevelTileMap.gd" id="12_wdpaa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y86jk"]
 texture = ExtResource("1_kjl1f")
@@ -5304,4 +5305,6 @@ sources/15 = SubResource("TileSetAtlasSource_0kggf")
 [node name="grass-01" type="TileMap"]
 z_index = -1
 tile_set = SubResource("TileSet_viyjb")
+cell_quadrant_size = 32
 format = 2
+script = ExtResource("12_wdpaa")

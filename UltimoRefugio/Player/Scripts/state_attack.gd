@@ -9,7 +9,7 @@ var attacking : bool = false
 @onready var idle : State = $"../idle"
 @onready var animation_player : AnimationPlayer = $"../../AnimationPlayer"
 @onready var walk : State = $"../walk"
-@onready var hurt_box : HurtBox = $"../../Interactions/hurt_box"
+@onready var hurt_box : HurtBox = %ArrackHurt_box
 func Enter() -> void:
 	player.UpdateAnimation("attack")
 	attack_anim.play( "attack_" + player.AnimDirection() )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dcai5ow8aexeu"]
+[gd_scene load_steps=32 format=3 uid="uid://dcai5ow8aexeu"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_gmgpw"]
 [ext_resource type="Texture2D" uid="uid://ccfufwmiejoch" path="res://Player/Sprites/PlayerSprite02.png" id="2_obstl"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://dxco72fbfyxwl" path="res://Player/Audio/SwordSwoosh.wav" id="8_8xq73"]
 [ext_resource type="Script" path="res://Player/Scripts/PlayerInteractionsHost.gd" id="10_45f7s"]
 [ext_resource type="PackedScene" uid="uid://2axbl6w5lwxt" path="res://GenrealNodes/HurtBox/hurt_box.tscn" id="10_aow1q"]
+[ext_resource type="Script" path="res://Player/Scripts/PlayerCamera.gd" id="11_n0plw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kf777"]
 radius = 6.08276
@@ -235,6 +236,9 @@ _data = {
 "no_attack": SubResource("Animation_58kka")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_75l3v"]
+radius = 20.0
+
 [sub_resource type="Animation" id="Animation_sq4lf"]
 length = 0.001
 tracks/0/type = "value"
@@ -248,6 +252,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/ArrackHurt_box:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 27)]
 }
 
 [sub_resource type="Animation" id="Animation_wlwiq"]
@@ -265,6 +281,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [21, 23]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/ArrackHurt_box:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 17)]
+}
 
 [sub_resource type="Animation" id="Animation_g7340"]
 resource_name = "attack_side"
@@ -281,6 +309,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [27, 29]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/ArrackHurt_box:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(17, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_kdu4d"]
 resource_name = "attack_up"
@@ -296,6 +336,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [24, 26]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/ArrackHurt_box:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -17)]
 }
 
 [sub_resource type="Animation" id="Animation_5w7f6"]
@@ -414,9 +466,6 @@ _data = {
 "walk_up": SubResource("Animation_1co1m")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_75l3v"]
-radius = 20.0
-
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(28, 58)
 collision_mask = 16
@@ -444,13 +493,23 @@ texture = ExtResource("3_ctxyw")
 position = Vector2(0, 10)
 texture = ExtResource("3_f6wlu")
 hframes = 12
-frame = 3
+frame = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D/AttackEffectSprite"]
 autoplay = "no_attack"
 libraries = {
 "": SubResource("AnimationLibrary_dsig4")
 }
+
+[node name="ArrackHurt_box" parent="Sprite2D" instance=ExtResource("10_aow1q")]
+unique_name_in_owner = true
+position = Vector2(0, 27)
+collision_mask = 256
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/ArrackHurt_box"]
+shape = SubResource("CircleShape2D_75l3v")
+debug_color = Color(0.92549, 0.266667, 0.156863, 0.419608)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -471,6 +530,8 @@ script = ExtResource("6_o7jrl")
 attack_sound = ExtResource("8_8xq73")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+editor_draw_limits = true
+script = ExtResource("11_n0plw")
 
 [node name="Audio" type="Node2D" parent="."]
 
@@ -479,12 +540,3 @@ max_polyphony = 4
 
 [node name="Interactions" type="Node2D" parent="."]
 script = ExtResource("10_45f7s")
-
-[node name="hurt_box" parent="Interactions" instance=ExtResource("10_aow1q")]
-position = Vector2(0, 16)
-collision_mask = 256
-monitoring = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/hurt_box"]
-shape = SubResource("CircleShape2D_75l3v")
-debug_color = Color(0.92549, 0.266667, 0.156863, 0.419608)
