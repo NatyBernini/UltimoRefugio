@@ -23,6 +23,7 @@ func _ready():
 	state_machine.Initialize(self)
 	hit_box.Damaged.connect(_take_damage)
 	update_hp(99)
+	
 	pass
 
 func _process( _delta ):
@@ -81,6 +82,7 @@ func _take_damage(hurt_box: HurtBox)->void:
 	
 func update_hp(_delta:int)->void:
 	hp = clampi(hp+_delta, 0, max_hp)
+	PlayerHud.update_hp (hp, max_hp)
 	pass
 	
 func make_invulnerable(_duration: float = 1.0)->void:
