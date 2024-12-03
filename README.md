@@ -10,7 +10,7 @@
 Foi desenvolvido através da engine Godot 4.3 e para os assets e sprites foi utilizado o Itch.io 
 
 ## Mecânicas
-	Esc Star/Pause \\ Z Ataque Simples \\ Z Pressionado Ataque Especial \\ X Ataque Boomerang
+	Esc Start/Pause \\ Z Ataque Simples \\ Z Pressionado Ataque Especial \\ X Ataque Boomerang
  	Movimentação Setas do Teclado ←↑→
   	Interação E
  
