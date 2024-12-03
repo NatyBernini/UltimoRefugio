@@ -6,8 +6,10 @@
   Em um mundo à beira do colapso, uma pequena comunidade da espécie de felinos vive isolada em um assentamento remoto, cercado por florestas densas e montanhas. 
   Apesar de escassez de recursos e perigos constantes, eles conseguiram se manter a salvo. No entanto, essa paz frágil é quebrada quando um dos membros mais importantes da comunidade é sequestrado. 
   Na busca por resgatá-lo, os sobreviventes inadvertidamente liberam uma praga mortal que dá início a mudanças genéticas nos seres místicos que lá habitavam, transformando-os em goblins e slimes.  
-
-
+## Mecânicas
+	Esc Star/Pause \\ Z Ataque Simples \\ Z Pressionado Ataque Especial \\ X Ataque Boomerang
+ 	Movimentação Setas do Teclado ←↑→
+  	Interação E
  
 ## Desenvolvedores:
 	- Matheus de Melo;
